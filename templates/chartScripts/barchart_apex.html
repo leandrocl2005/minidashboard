@@ -1,0 +1,27 @@
+<script>
+  const barChartApexContext = document.getElementById("firstApexChart");
+  const barChartApex = new ApexCharts(barChartApexContext, {
+    chart: {
+      type: 'bar',
+    },
+    series: [{
+        name: 'Samsung',
+        data: [30, 40, 45, 50, 49]
+      },
+      {
+        name: 'Microsoft',
+        data: [40, 20, 35, 60, 39]
+      },
+      {
+        name: 'Apple',
+        data: [10, 12, 50, 30, 29]
+      },
+    ],
+    colors: ['#81b29a', '#e07a5f', '#f2cc8f'],
+    xaxis: {
+      categories: ['janeiro', 'fevereiro', 'março', 'abril', 'maio'],
+    }
+  });
+
+  barChartApex.render();
+</script>

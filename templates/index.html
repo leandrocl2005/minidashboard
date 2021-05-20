@@ -12,7 +12,7 @@
 {% block content %}
 <!-- Page Content-->
 <div class="row mb-4">
-  <div class="col-lg-6">
+  <div class="col-lg-6 mt-2">
     <div class="card line-chart-example">
       <div class="card-header d-flex align-items-center">
         <h4>Serviços por dia da semana e por empresa</h4>
@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-6 mt-2">
     <div class="card line-chart-example">
       <div class="card-header d-flex align-items-center">
         <h4>Serviços por compania</h4>
@@ -35,7 +35,7 @@
 </div>
 
 <div class="row mb-4">
-  <div class="col-lg-6">
+  <div class="col-lg-6 mt-2">
     <div class="card line-chart-example">
       <div class="card-header d-flex align-items-center">
         <h4>Serviços por tipo</h4>
@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-6 mt-2">
     <div class="card line-chart-example">
       <div class="card-header d-flex align-items-center">
         <h4>Serviços por tipo</h4>
@@ -57,14 +57,66 @@
   </div>
 </div>
 
+<div class="row mb-4">
+  <div class="col-lg-6 mt-2">
+    <div class="card line-chart-example">
+      <div class="card-header d-flex align-items-center">
+        <h4>Serviços por mês</h4>
+      </div>
+      <div class="card-body">
+        <div id="firstApexChart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 mt-2">
+    <div class="table-responsive table-hover table-striped">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Microsoft</th>
+            <th scope="col">Samsung</th>
+            <th scope="col">Apple</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Projetos</th>
+            <td>{{num_microsoft_projects}}</td>
+            <td>{{num_samsung_projects}}</td>
+            <td>{{num_apple_projects}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Consultorias</th>
+            <td>{{num_microsoft_consults}}</td>
+            <td>{{num_samsung_consults}}</td>
+            <td>{{num_apple_consults}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Orçamentos</th>
+            <td>{{num_microsoft_budgets}}</td>
+            <td>{{num_samsung_budgets}}</td>
+            <td>{{num_apple_budgets}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
 
 {% block pagelevelscripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 {# if jinja in script, include as html #}
-{% include 'chartScripts/linechart_script.html' %}
-{% include 'chartScripts/barchart_script.html' %}
-{% include 'chartScripts/doughnutchart_script.html' %}
-{% include 'chartScripts/radarchart_script.html' %}
+{% include 'chartScripts/linechart_chartjs.html' %}
+{% include 'chartScripts/barchart_chartjs.html' %}
+{% include 'chartScripts/doughnutchart_chartjs.html' %}
+{% include 'chartScripts/radarchart_chartjs.html' %}
+{% include 'chartScripts/barchart_apex.html' %}
+
 {% endblock %}
