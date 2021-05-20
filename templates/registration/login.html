@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Minidashboard - Login</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <form method="post" class="p-4 col-md-6 my-4 mx-auto">
+      {% if form.errors %}
+      <p style="color:red;text-align:center">Senha ou usuário incorretos.</p>
+      {% endif %}
+      {% csrf_token %}
+
+
+      <label for="username"><b>Usuário</b></label>
+      <input type="text" placeholder="Entre com o nome de usuário..." name="username" required>
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" name="password" required>
+
+      <button class="btn btn-primary" type="submit">Login</button>
+
+    </form>
+  </div>
+</body>
+
+</html

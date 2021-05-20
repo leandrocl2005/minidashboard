@@ -1,0 +1,40 @@
+<script>
+  const barChartContext = document.getElementById("barchart").getContext('2d');
+  const barChart = new Chart(barChartContext, {
+    type: 'bar',
+    data: {
+      labels: ['consultorias', 'projetos', 'orçamentos'], // from jinja
+      datasets: [{
+          label: 'Samsung',
+          backgroundColor: '#81b29a',
+          borderColor: '#3d405b',
+          data: [300, 400, 200], // from jinja
+        },
+        {
+          label: 'Microsoft',
+          backgroundColor: '#e07a5f',
+          borderColor: '#3d405b',
+          data: [100, 600, 500], // from jinja
+        },
+        {
+          label: 'Apple',
+          backgroundColor: '#f2cc8f',
+          borderColor: '#3d405b',
+          data: [400, 200, 300], // from jinja
+        },
+      ]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            max: 800, // from jinja
+            padding: 10,
+            maxTicksLimit: 5,
+          }
+        }]
+      }
+    },
+  });
+</script>

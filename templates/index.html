@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pagelevelstyles %}
+<link href="{% static 'css/charts.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block pagetitle %}
+<h1 class="mt-2">Dashboard</h1>
+{% endblock %}
+
+{% block content %}
+<!-- Page Content-->
+<div class="row mb-4">
+  <div class="col-lg-6">
+    <div class="card line-chart-example">
+      <div class="card-header d-flex align-items-center">
+        <h4>Serviços por dia da semana e por empresa</h4>
+      </div>
+      <div class="card-body">
+        <canvas id="linechart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card line-chart-example">
+      <div class="card-header d-flex align-items-center">
+        <h4>Serviços por compania</h4>
+      </div>
+      <div class="card-body">
+        <canvas id="barchart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-lg-6">
+    <div class="card line-chart-example">
+      <div class="card-header d-flex align-items-center">
+        <h4>Serviços por tipo</h4>
+      </div>
+      <div class="card-body">
+        <canvas id="doughnutChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card line-chart-example">
+      <div class="card-header d-flex align-items-center">
+        <h4>Serviços por tipo</h4>
+      </div>
+      <div class="card-body">
+        <canvas id="radarChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pagelevelscripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js">
+</script>
+{# if jinja in script, include as html #}
+{% include 'chartScripts/linechart_script.html' %}
+{% include 'chartScripts/barchart_script.html' %}
+{% include 'chartScripts/doughnutchart_script.html' %}
+{% include 'chartScripts/radarchart_script.html' %}
+{% endblock %}

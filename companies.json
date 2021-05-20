@@ -1,0 +1,35 @@
+[
+  {
+    "model": "companies.company",
+    "pk": 1,
+    "fields": {
+      "name": "Apple",
+      "email": "apple@apple.com",
+      "phone": "3499998888",
+      "created_at": "2021-05-20T11:13:51.797Z",
+      "updated_at": "2021-05-20T11:13:51.797Z"
+    }
+  },
+  {
+    "model": "companies.company",
+    "pk": 2,
+    "fields": {
+      "name": "Microsoft",
+      "email": "microsoft@microsoft.com",
+      "phone": "2155557777",
+      "created_at": "2021-05-20T11:14:09.774Z",
+      "updated_at": "2021-05-20T11:14:09.775Z"
+    }
+  },
+  {
+    "model": "companies.company",
+    "pk": 3,
+    "fields": {
+      "name": "Samsung",
+      "email": "samsung@samsung.com",
+      "phone": "3766665555",
+      "created_at": "2021-05-20T11:14:31.691Z",
+      "updated_at": "2021-05-20T11:14:31.691Z"
+    }
+  }
+]

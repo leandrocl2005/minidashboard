@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block pagetitle %}
+<h1 class="mt-4">{{pagetitle}}</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-sm mt-4" style="min-height: 80vh;">
+  {% crispy form %}
+</div>
+
+{% endblock %}

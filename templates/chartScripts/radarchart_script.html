@@ -1,0 +1,42 @@
+<script>
+  const radarChartContext = document.getElementById("radarChart").getContext('2d');
+  const radarChart = new Chart(radarChartContext, {
+    type: 'radar',
+    data: {
+      labels: ["consultorias", "projetos", "orçamentos"], // from jinja
+      datasets: [{
+          label: 'Microsoft',
+          data: [60, 60, 20], // from jinja
+          backgroundColor: '#e07a5f33',
+          borderColor: '#e07a5f',
+          tension: 0.2,
+        },
+        {
+          label: 'Samsung',
+          data: [50, 30, 80], // from jinja
+          backgroundColor: '#81b29a33',
+          borderColor: '#81b29a',
+          tension: 0.2,
+        },
+        {
+          label: 'Apple',
+          data: [40, 10, 50], // from jinja
+          backgroundColor: '#f2cc8f33',
+          borderColor: '#f2cc8f',
+          tension: 0.2,
+        },
+      ],
+      options: {
+        scales: {
+          r: {
+            angleLines: {
+              display: false
+            },
+            suggestedMin: 50,
+            suggestedMax: 100
+          }
+        }
+      },
+    },
+  });
+</script>

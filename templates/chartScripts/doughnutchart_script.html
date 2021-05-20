@@ -1,0 +1,15 @@
+<script>
+  const doughnutChartContext = document.getElementById("doughnutChart").getContext('2d');
+  const doughnutChart = new Chart(doughnutChartContext, {
+    type: 'doughnut',
+    data: {
+      labels: ["consultorias", "projetos", "orçamentos"], // from jinja
+      datasets: [{
+        label: 'Microsoft',
+        data: [30, 40, 20], // from jinja
+        borderColor: "#293241",
+        backgroundColor: ["#3d5a80", "#98c1d9", "#e0fbfc"]
+      }]
+    },
+  });
+</script>

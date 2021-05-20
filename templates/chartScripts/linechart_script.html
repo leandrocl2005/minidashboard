@@ -1,0 +1,42 @@
+<script>
+  const lineChartContext = document.getElementById("linechart").getContext('2d');
+  const lineChart = new Chart(lineChartContext, {
+    type: 'line',
+    data: {
+      labels: ["sunday", "monday", "tuesday",
+        "wednesday", "thursday", "friday", "saturday"
+      ],
+      datasets: [{
+          label: 'Samsung',
+          backgroundColor: '#81b29a33',
+          borderColor: '#81b29a',
+          data: [2000, 7000, 4000, 3000, 8000, 3000, 3000],
+        },
+        {
+          label: 'Microsoft',
+          backgroundColor: '#e07a5f33',
+          borderColor: '#e07a5f',
+          data: [3000, 4000, 2000, 5000, 8000, 9000, 2000],
+        },
+        {
+          label: 'Apple',
+          backgroundColor: '#f2cc8f33',
+          borderColor: '#f2cc8f',
+          data: [3000, 8000, 4000, 6000, 8000, 8000, 4000],
+        },
+      ]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            max: 10000, // from jinja
+            padding: 10,
+            maxTicksLimit: 5,
+          }
+        }]
+      }
+    },
+  });
+</script>
