@@ -34,3 +34,4 @@ python manage.py runserver
 ## References
 
 - https://books.agiliq.com/projects/django-orm-cookbook/en/latest/index.html
+- https://github.com/rg3915/django-boilerplate

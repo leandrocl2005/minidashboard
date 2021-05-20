@@ -1,39 +1,61 @@
+{% extends "registration/base_login.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <title>Minidashboard - Login</title>
-  <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-  <link href="{% static 'css/login.css' %}" rel="stylesheet" />
-</head>
+{% block title %}Login{% endblock title %}
 
-<body>
-  <div class="container">
-    <form method="post" class="p-4 col-md-6 my-4 mx-auto">
-      {% if form.errors %}
-      <p style="color:red;text-align:center">Senha ou usuário incorretos.</p>
-      {% endif %}
-      {% csrf_token %}
+{% block content %}
+<div class="col-md-8">
+  <div class="card-group">
+    <div class="card p-4">
+      <div class="card-body">
+        {% if messages %}
+        <h1 class="w-100 text-center mb-5" style="color:#555">Login</h1>
+        {% else %}
+        <h1 class="w-100 text-center" style="color:#555">Login</h1>
+        {% endif %}
+        <!-- <p class="text-muted">Sign In to your account</p> -->
+        {% include 'messages.html' %}
+        {% if form.errors %}
+        {% for error in form.non_field_errors %}
+        <p class="alert alert-danger" role="alert"><span style="font-weight:bold">{{ error }}</span></p>
+        {% endfor %}
+        {% endif %}
 
+        <form action="." method="POST">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon-user"></i>
+              </span>
+            </div>
+            <input class="form-control" name="username" type="text" placeholder="Usuário" autofocus>
+          </div>
+          <div class="input-group mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon-lock"></i>
+              </span>
+            </div>
+            <input class="form-control" name="password" type="password" placeholder="Senha">
+          </div>
+          <div class="row">
+            <div class="col-4 mx-auto">
+              <button class="btn btn-primary px-4" type="submit">Login</button>
+            </div>
+          </div>
+        </form>
 
-      <label for="username"><b>Usuário</b></label>
-      <input type="text" placeholder="Entre com o nome de usuário..." name="username" required>
-
-      <label for="password"><b>Password</b></label>
-      <input type="password" name="password" required>
-
-      <button class="btn btn-primary" type="submit">Login</button>
-
-    </form>
+      </div>
+    </div>
+    <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%; justify-content: center !important">
+      <div class="card-body text-center" style="flex: none;">
+        <div>
+          <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="250px">
+          <p><a class="btn btn-primary active mt-3" href="/accounts/register/">Cadastre-se</a></p>
+        </div>
+      </div>
+    </div>
   </div>
-</body>
-
-</html
+</div>
+{% endblock content %}
